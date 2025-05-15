@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  nyc_taxi_model_service:
+    build:
+      context: ./src/model
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    container_name: model_api
+    networks:
+      - mynetwork
+
+  streamlit:
+    build:
+      context: ./src/streamlit_app
+      dockerfile: Dockerfile.streamlit
+    depends_on:
+      - nyc_taxi_model_service
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./src/streamlit_app:/usr/src/app
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

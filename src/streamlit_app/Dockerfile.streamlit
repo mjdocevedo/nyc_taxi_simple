@@ -1,0 +1,9 @@
+FROM python:3.9
+
+COPY . /app
+
+RUN pip install streamlit requests
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "/app/app.py"]
