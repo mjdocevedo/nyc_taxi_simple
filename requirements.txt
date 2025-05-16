@@ -1,0 +1,9 @@
+numpy
+scikit-learn
+joblib
+fastapi
+uvicorn
+requests
+pytest
+httpx
+python-dotenv

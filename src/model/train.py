@@ -6,7 +6,7 @@ import joblib  # Save and load models
 import pickle  # Serialization
 
 # Step 2: Load the NYC Taxi dataset
-df = pd.read_csv("/home/ubuntu/nyc_taxi/src/data/nyc_taxi.csv")
+df = pd.read_csv("/home/ubuntu/nyc_taxi/data/nyc_taxi.csv")
 
 # Extract features (X) and target (y)
 df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"], errors="coerce")
